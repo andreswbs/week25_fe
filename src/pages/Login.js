@@ -1,11 +1,15 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
+const Login = ({login}) => {
     const [userName, setUserName] = useState('')
     const [password, setPassword] = useState('')
+    const navigate = useNavigate()
 
     const validate = () => {
         console.log(userName, password)
+        login(userName, password)
+        navigate('/registered_users')
     }
 
     return (
